@@ -55,6 +55,8 @@ const findAll = async (req, res) => {
     const total = await countNews();
     const currentUrl = req.baseUrl;
 
+    console.log(news[0])
+    
     const next = offset + limit;
     const nextUrl =
       next < total ? `${currentUrl}?limit=${limit}&offset=${next}` : null;
@@ -81,9 +83,9 @@ const findAll = async (req, res) => {
         banner: newsItem.banner,
         likes: newsItem.likes,
         comments: newsItem.comments,
-        name: newsItem.user.name,
-        username: newsItem.user.username,
-        userAvatar: newsItem.user.avatar,
+         name: newsItem?.user?.name,
+         username: newsItem?.user?.username,
+        userAvatar: newsItem?.user?.avatar,
       })),
     });
   } catch (error) {
