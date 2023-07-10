@@ -54,8 +54,6 @@ const findAll = async (req, res) => {
     const news = await findAllService(offset, limit);
     const total = await countNews();
     const currentUrl = req.baseUrl;
-
-    console.log(news[0])
     
     const next = offset + limit;
     const nextUrl =
@@ -108,9 +106,9 @@ const topNews = async (req, res) => {
         banner: news.banner,
         likes: news.likes,
         comments: news.comments,
-        name: news.user.name,
-        username: news.user.username,
-        userAvatar: news.user.avatar,
+        name: news?.user?.name,
+        username: news?.user?.username,
+        userAvatar: news?.user?.avatar,
       },
     });
   } catch (error) {
@@ -131,9 +129,9 @@ const findById = async (req, res) => {
         banner: news.banner,
         likes: news.likes,
         comments: news.comments,
-        name: news.user.name,
-        username: news.user.username,
-        userAvatar: news.user.avatar,
+        name: news?.user?.name,
+        username: news?.user?.username,
+        userAvatar: news?.user?.avatar,
       },
     });
   } catch (error) {
@@ -160,9 +158,9 @@ const searchByTitle = async (req, res) => {
         banner: item.banner,
         likes: item.likes,
         comments: item.comments,
-        name: item.user.name,
-        username: item.user.username,
-        userAvatar: item.user.avatar,
+        name: item?.user?.name,
+        username: item?.user?.username,
+        userAvatar: item?.user?.avatar,
       })),
     });
   } catch (error) {
@@ -183,9 +181,9 @@ const byUser = async (req, res) => {
         banner: item.banner,
         likes: item.likes,
         comments: item.comments,
-        name: item.user.name,
-        username: item.user.username,
-        userAvatar: item.user.avatar,
+        name: item?.user?.name,
+        username: item?.user?.username,
+        userAvatar: item?.user?.avatar,
       })),
     });
   } catch (error) {
