@@ -11,6 +11,10 @@
     },
     "servers":[
         {
+            "url": "https://api-breakingnews-3kwa.onrender.com/",
+            "description": "BreakingNews-API"
+          },
+        {
             "url": "http://localhost:4000",
             "description": "Local Server"
           }
