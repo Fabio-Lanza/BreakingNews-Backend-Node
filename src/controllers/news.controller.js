@@ -151,7 +151,7 @@ const searchByTitle = async (req, res) => {
     }
 
     return res.send({
-      results: news.map((item) => ({
+      results: news?.map((item) => ({
         id: item._id,
         title: item.title,
         text: item.text,
@@ -174,7 +174,7 @@ const byUser = async (req, res) => {
     const news = await byUserService(id);
 
     return res.send({
-      results: news.map((item) => ({
+      results: news?.map((item) => ({
         id: item._id,
         title: item.title,
         text: item.text,
@@ -203,7 +203,7 @@ const update = async (req, res) => {
 
     const news = await findByIdService(id);
 
-    if (String(news.user._id) != req.userId) {
+    if (String(news?.user?._id) != req.userId) {
       return res.status(400).send({ message: "You didn't create this post" });
     }
 
@@ -220,9 +220,8 @@ const erase = async (req, res) => {
     const { id } = req.params;
 
     const news = await findByIdService(id);
-    console.log(typeof news.user._id, typeof req.userId);
 
-    if (String(news.user._id) != req.userId) {
+    if (String(news?.user?._id) != req.userId) {
       return res.status(400).send({ message: "You didn't delete this post" });
     }
 
